@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML5 forms - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>HTML5 form features</h1>
+            
+            <h2>New input types & attributes</h2>
+            <form action="javascript:alert('Form passed validation.\nHow thorough this validation is depends on your browser.')">
+                <dl>
+                    <dt><label>Autofocus & required</label></dt>
+                    <dd><input type="text" autofocus required></dd>
+                    
+                    <dt><label>Search (will not autocomplete)</label></dt>
+                    <dd><input type="search" placeholder="Search" autocomplete="off"></dd>
+                    
+                    <dt><label>URL</label></dt>
+                    <dd><input type="url" placeholder="URL"></dd>
+                    
+                    <dt><label>Tel (Must take the form of 1234567)</label></dt>
+                    <dd><input type="tel" placeholder="Telephone number" pattern="[0-9]{7}"
+                           title="Must take the form of 7 digits"></dd>
+                    
+                    <dt><label>Email</label></dt>
+                    <dd><input type="email" placeholder="Email address"></dd>
+                    
+                    <dt><label>Datetime</label></dt>
+                    <dd><input type="datetime" placeholder="Date and time"></dd>
+                    
+                    <dt><label>Date</label></dt>
+                    <dd><input type="date" placeholder="Date"></dd>
+                    
+                    <dt><label>Time</label></dt>
+                    <dd><input type="time" placeholder="Time"></dd>
+                    
+                    <dt><label>Month</label></dt>
+                    <dd><input type="month" placeholder="Month"></dd>
+                    
+                    <dt><label>Week</label></dt>
+                    <dd><input type="week" placeholder="Week"></dd>
+                    
+                    <dt><label>Number</label></dt>
+                    <dd><input type="number" placeholder="Number"></dd>
+                    
+                    <dt><label>Range</label></dt>
+                    <dd><input type="range" placeholder="Range"></dd>
+                    
+                    <dt><label>Color</label></dt>
+                    <dd><input type="color" placeholder="HTML color"></dd>
+                </dl>
+                
+                <p><input type="submit" value="Test validation"></p>
+            </form>
+            
+            <h2>New elements</h2>
+            <form>
+                <dl>
+                    <dt><label>Output</label></dt>
+                    <dd><input type="number" name="a" value="1"> + <input type="number" name="b" value="2"> =
+                    <output onforminput="value = a.valueAsNumber + b.valueAsNumber">3</output></dd>
+                
+                    <dt><label>Meter</label></dt>
+                    <dd><meter value="0.8">80%</meter> 80%</dd>
+                
+                    <dt><label>Progress</label></dt>
+                    <dd><progress value="0.3">30%</progress> 30%</dd>
+                </dl>
+            </form>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript" src="media.js"></script>
+	</body>
+</html>

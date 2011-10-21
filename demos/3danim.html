@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>3D CSS transforms/animations - Dave's web experiments</title>
+        
+        <style>
+            .container-3d { -webkit-perspective: 1000px; }
+            #threedee {
+                margin-top: 10em;
+                width: 25%; height: 10em;
+                line-height: 10em;
+                background-color: #7777ff;
+                text-align: center;
+            }
+            .centerblock { margin-left: auto; margin-right: auto; } 
+            .spinY { -webkit-animation: spin3d 2s linear infinite; }
+            @-webkit-keyframes spin3d {
+                from { -webkit-transform: rotateY(0deg) }
+                to   { -webkit-transform: rotateY(360deg) }
+            }
+        </style>
+    </head>
+    <body>
+
+<div class="container-3d">
+    <div id="threedee" class="spinY centerblock">
+        TEST
+    </div>
+</div>
+
+<div class="container-3d">
+    <video width="640" height="352" controls autoplay style="display: block" class="spinY centerblock">
+            <source src="../resource/traffic.mp4" type='video/mp4; codecs="avc1.64001E, mp4a.40.2"' />
+            <source src="../resource/traffic.webm" type='video/webm; codecs="vp8, vorbis"' />
+    </video>
+</div>
+
+    </body>
+</html>

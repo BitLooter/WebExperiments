@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Audio tag - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <link rel="stylesheet" href="media.css" />
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>The &lt;audio&gt; tag</h1>
+            
+            <div class="centerblock" id="mediaContainer">
+                Javascript control:
+                <span id="jscontrols">
+                    <a id="mediaplay" href="#">[play]</a>
+                    <a id="mediapause" href="#">[pause]</a>
+                </span>
+                
+        		<audio id="mediasample" controls style="display: block; width: 100%">
+        			<source src="../resource/codemonkey.ogg" type='audio/ogg; codecs="vorbis"' />
+        			<source src="../resource/codemonkey.mp3" type='audio/mpeg' />
+        		</audio>
+        	</div>
+		
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript" src="media.js"></script>
+	</body>
+</html>

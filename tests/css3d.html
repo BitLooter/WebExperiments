@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS 3D Transforms - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            .rose {
+                height: 10em;
+                border: 2px solid gray;
+            }
+            .container-3d {
+                -webkit-perspective: 1000px;
+            }
+            .rotx60 {
+                -webkit-transform: rotateX(60deg);
+            }
+            .roty60 {
+                -webkit-transform: rotateY(60deg);
+            }
+            .rotxy60 {
+                -webkit-transform: rotateX(60deg) rotateY(60deg);
+            }
+        </style>
+    </head>
+	<body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>CSS 3D Transforms</h1>
+    		
+    		<h2>The unmodified image</h2>
+    		<img class="rose" src="../resource/rose.svg" />
+    		
+    		<h2>Rotate</h2>
+            <div class="container-3d">
+                <img class="rose roty60" src="../resource/rose.svg" />
+                <img class="rose rotx60" src="../resource/rose.svg" />
+                <img class="rose rotxy60" src="../resource/rose.svg" />
+            </div>
+            
+            <p>I could go on, but for a simple test translation and scale isn't much
+            different from the <a href="transforms.html">2D transforms</a>.</p>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript" src="media.js"></script>
+	</body>
+</html>

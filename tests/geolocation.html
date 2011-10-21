@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Geolocation - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            #geotest, #nogeo {
+                display: none;
+            }
+            #nogeo img {
+                width: 80%;
+            }
+            #waiting {
+                font-style: italic; font-weight: bold;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>Geolocation API</h1>
+            <p>Note: Geolocation may not work if you've loaded the page from a local file.</p>
+            
+            <div id="geotest">
+                <p>Your location:
+                    <span id="latitude"></span>&deg;, <span id="longitude"></span>&deg;
+                </p>
+                <p>Your location on Google Maps (requires internet access):</p>
+                <img id="googlemap" class="centerblock"/>
+            </div>
+            <div id="nogeo">
+                <p>Your browser does not support the Geolocation API, or you did not grant
+                permission to the page to use it, or something else went wrong. Sorry about
+                that. Here's a picture of a kitten to make you feel better:</p>
+                <img src="../resource/cat.jpg" class="centerblock" />
+            </div>
+            <div id="waiting">
+                Waiting for you to grant permission...
+            </div>
+		    
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript">
+            function showGeo(pos) {
+                lat = pos.coords.latitude;
+                lon = pos.coords.longitude;
+                document.getElementById("latitude").innerHTML = lat;
+                document.getElementById("longitude").innerHTML = lon;
+                // Hide the placeholder and show the geolocation test html
+                document.getElementById("waiting").style.display = "none";
+                document.getElementById("geotest").style.display = "block";
+                // Create the google map
+                mapUrl = 'http://maps.googleapis.com/maps/api/staticmap?center='+lat+","+lon+'&zoom=14&size=400x400&sensor=true'
+                mapImg = document.getElementById("googlemap");
+                mapImg.src = mapUrl
+                mapImg.style.display = "block"
+            }
+            
+            function geoError(error) {
+                // The user denied the geolocation request, or something else went wrong
+                document.getElementById("waiting").style.display = "none";
+                document.getElementById("nogeo").style.display = "block";
+            }
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showGeo, geoError);
+            } else {
+                geoError(null);
+            }
+            
+        </script>
+	</body>
+</html>

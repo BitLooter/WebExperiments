@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Dave's web experiments</title>
+		<link rel="stylesheet" href="resource/common.css" />
+		<style>
+		    .detectIcon {
+		        width: 1em; height: 1em;
+		        float: right;
+		        padding: 2pt;
+		    }
+		    ul.linklist {
+		        margin: 1em; padding: 0;
+                list-style-type: none;
+		    }
+		    li {
+		        /*background-image: url("resource/rose.svg");*/
+		        /*background-size: 1em;*/
+		        /*background-repeat: no-repeat;*/
+		        /*background-position-y: 2pt;*/
+                /*padding-left: 1.5em;/*
+                /*list-style-image: url("resource/rose.svg");*/
+		    }
+		    ul.linklist li:nth-child(even) {
+		        background-color: #dddddd;
+		    }
+		    /* list icons */
+		    .list-css3 {
+		        /*background-image: url('http://www.openclipart.org/people/lemmling/lemmling_Ladybug.svg');*/
+		        /*background-image: url('resource/html5_css3_styling.svg');*/
+		        /*background-image: url('resource/cat.jpg');*/
+		        /*background-size: auto 1em;
+		        background-repeat: no-repeat;
+		        padding-left: 2em;*/
+ 		    }
+		</style>
+	</head>
+	<body>
+	    <div id="content">
+	        <header>
+	            <img alt="Dave's web experiments" src="resource/header.svg">
+	        </header>
+	        
+	        <nav>
+                <h1>Feature tests</h1>
+        		<ul class="linklist">
+        			<li class="html5feature" id="feature-video">
+        			    <a href="tests/video.html"><code>&lt;video&gt;</code> tag</a></li>
+        			<li class="html5feature" id="feature-audio">
+        			    <a href="tests/audio.html"><code>&lt;audio&gt;</code> tag</a></li>
+                    <li class="html5feature" id="feature-font">
+                        <a href="tests/font.html">CSS @font-face</a></li>
+                    <li class="html5feature" id="feature-history">
+                        <a href="tests/history.html">History API</a></li>
+                    <li class="html5feature" id="feature-columns">
+                        <a href="tests/columns.html">Multiple column layout</a></li>
+                    <li class="html5feature" id="feature-columns">
+                        <a href="tests/forms.html">HTML5 form stuff</a></li>
+                    <li class="html5feature" id="feature-transforms">
+                        <a href="tests/transforms.html">CSS Transforms</a></li>
+                    <li class="html5feature list-css3" id="feature-css3d">
+                        <a href="tests/css3d.html">CSS 3D Transforms</a></li>
+                    <li class="html5feature" id="feature-mathml">
+                        <a href="tests/mathml.html">MathML</a></li>
+                    <li class="html5feature" id="feature-geolocation">
+                        <a href="tests/geolocation.html">Geolocation</a></li>
+                    <li class="html5feature" id="feature-canvas">
+                        <a href="tests/canvas.html">Canvas</a></li>
+                    <li>CSS animation</li>
+                    <li>CSS media queries</li>
+                    <li>Flexbox</li>
+                    <li>Transitions</li>
+                    <li>Drag and drop</li>
+                    <li>offline applications</li>
+                    <li>WebGL</li>
+                    <li>SVG</li>
+                    <li>File APIs</li>
+                    <li>Hashchange</li>
+                    <li>web sockets</li>
+                    <li>web workers</li>
+                    <li>server-sent events</li>
+                    <li>toolbar/context menu</li>
+        		</ul>
+        		
+        		<h1>Demos</h1>
+        		<ul>
+        			<li><a href="demos/progress.html">CSS3/SVG animated progress indicators</a></li>
+        			<li><a href="demos/3danim.html">Using 3D transforms in animation</a></li>
+        			<li>CSS 3D transforms following mouse</li>
+        			<li>Uploading fonts in the web browser</li>
+        		</ul>
+            </nav>
+            
+    		<h1>Stuff to do and ideas for the future</h1>
+            <p>TODO: browser detection</p>
+            <p>TODO: HTML5 links/resources</p>
+            <p>Javascript detection & warning</p>
+            <p>tagging for demos</p>
+            <p>mobile browser support</p>
+            <p>browser support info on test pages</p>
+            <p>tests for Flash, Java, NaCl, Silverlight, etc.</p>
+            <p>download site as archive</p>
+            <p>minimal server included?</p>
+            <p>replace list icons with real icons</p>
+            <p>note about mobile browsers</p>
+            <p>maybe a CSS table layout test/demo?</p>
+            <p>test & support non-webkit browsers</p>
+            
+            <h1>A couple notes about the content</h1>
+            <p>As I'm sure should be obvious, this site is intented to
+                demonstrate aspects of certain bleeding-edge web technologies.
+                Naturally, this will sometimes require a bleeding-edge browser.
+                This being a hobby site built to my whims, I have chosen not
+                to actively maintain compatibility with older browsers. Not only would
+                doing so require a greater investment of time on my part for
+                little benefit, it would be fairly pointless anyways as many
+                of the pages within would either not work or display an error
+                telling you to upgrade your browser to something written this
+                millennium. It should work properly on all modern browsers,
+                except perhaps some of the more experimental tests; during
+                development I've been testing against Chrome 14, Firefox 5,
+                and occasionally Opera 11. Slightly older versions of the
+                browsers (e.g. Firefox 3.6) will probably run most of the
+                tests. IE is a different story; it's only fairly recently that
+                Microsoft has displayed a serious interest in web standards
+                and started playing catch-up to the other browsers.
+                IE9 is the latest version as this is written, and is fairly
+                compatible. IE8 and below are missing some important features
+                and I won't make any guarantees about its performance. IE10
+                is shaping up to be very compatible, and when it is released
+                I imagine it should handle most (all?) of the demos with
+                minimal problems.</p>
+                
+            <p>On a more technical note, if you go browsing through the
+                source code, you'll notice embedded CSS and Javascript in
+                parts. I realize this is bad form, but I've made some
+                concessions in the name of simplicity. This is not and will
+                not become an especially large site, and there's no reason to
+                split every page into twenty parts just for a small collection
+                of static HTML files. That said, duplicate and common code is
+                shuffled off into modules whenever possible, for ease of reuse;
+                no reason to make things difficult.</p>
+            
+            <section id="copyright">
+                <h2>Copyright information</h2>
+                <p>Except where noted below, this website and related media is available under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
+                <ul>
+                    <li><a href="resource/cat.jpg">cat.jpg</a>,
+                        <a href="resource/cactus.jpg">cactus.jpg</a>, and
+                        <a href="resource/cake.jpg">cake.jpg</a> are all taken from
+                        public domain sources.
+                    </li>
+                    <li><a href="resource/chemistry.jpg">chemistry.jpg</a> is from
+                        Wikimedia Commons and is under a 
+                        <a href="http://creativecommons.org/licenses/">CC BY-SA license</a>.</li>
+                    <li><a href="resource/codemonkey.mp3">"Code Monkey"</a> is
+                        by Jonathan Coulton and is under a
+                        <a href="http://creativecommons.org/licenses/">CC BY-NC license</a>.</li>
+                    <li><a href="resource/traffic.mp4">traffic.mp4</a> is from the
+                        YouTube video editor and is under a
+                        <a href="http://creativecommons.org/licenses/">CC BY license</a>.</li>
+                    <li><a href="resource/rose.svg">rose.svg</a> is from the Open Clip Art Library and is under a
+                        <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 (Public Domain) license</a>.</li>
+                    <li>HTML5 imagery is by the W3C and is under a
+                        <a href="http://creativecommons.org/licenses/">CC BY license</a>.</li>
+                </ul>
+                
+                <div style="text-align: center">
+                    <!-- generated code from the CC license selector -->
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>            
+                </div>
+            </section>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at
+                <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+		</div>
+		
+		<!-- All our JavaScripts -->
+        <script type="text/javascript" src="resource/detect.js"></script>
+	</body>
+</html>

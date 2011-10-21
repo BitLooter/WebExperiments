@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Video tag - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <link rel="stylesheet" href="media.css" />
+    </head>
+	<body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>The &lt;video&gt; tag</h1>
+            
+            <div class="centerblock" id="mediaContainer">
+                Javascript control:
+                <span id="jscontrols">
+                    <a id="mediaplay" href="#">[play]</a>
+                    <a id="mediapause" href="#">[pause]</a>
+                </span>
+                
+        		<video class="centerblock" id="mediasample" width="640" height="352"
+        		       poster="../resource/traffic-poster.png" controls preload="none">
+        			<source src="../resource/traffic.mp4" type='video/mp4; codecs="avc1.64001E, mp4a.40.2"' />
+        			<source src="../resource/traffic.webm" type='video/webm; codecs="vp8, vorbis"' />
+        			Your browser does not support the &lt;video&gt; tag. Sorry, try a better browser.
+        		</video>
+    		</div>
+    		
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript" src="media.js"></script>
+	</body>
+</html>

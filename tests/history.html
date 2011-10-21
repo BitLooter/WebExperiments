@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>History API - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <link rel="stylesheet" href="../resource/gentium.css" />
+        <style>
+            #left {
+                width: 50%;
+                float: left;
+            }
+            #right {
+                width: 50%;
+                float: right;
+            }
+            .image {
+                display: none;
+                width: 100%;
+            }
+            .imglink {
+                color: blue;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>History API</h1>
+            
+            <div id="left">
+                <ul>
+                    <li><a id="cakelink" class="imglink">Cake</a></li>
+                    <li><a id="catlink" class="imglink">Cat</a></li>
+                    <li><a id="cactuslink" class="imglink">Cactus</a></li>
+                    <li><a id="chemlink" class="imglink">Chemistry</a></li>
+                </ul>
+                <a href="javascript: window.history.back();">Go back</a>
+            </div>
+            <div id="right">
+                <img id="cake" class="image" alt="Cake" src="../resource/cake.jpg">
+                <img id="cat" class="image" alt="Cat" src="../resource/cat.jpg">
+                <img id="cactus" class="image" alt="Cactus" src="../resource/cactus.jpg">
+                <img id="chemistry" class="image" alt="Chemistry" src="../resource/chemistry.jpg">
+            </div>
+            
+            <footer style="clear:both">
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript">
+            function resetImages()
+            {
+                demoImages = document.getElementsByClassName("image");
+                for (var i = 0; i < demoImages.length; i++)
+                {
+                    var image = demoImages[i];
+                    image.style.display = "none";
+                }
+            }
+            
+            function setImage(imgname)
+            {
+                resetImages();
+                var theImage = document.getElementById(imgname);
+                theImage.style.display = "block";
+            }
+            
+            function updateImage()
+            {
+                var imgname;
+                // determine the clicked link and set matching image name
+                switch (this.id)
+                {
+                    case "cakelink":
+                        imgname = "cake";
+                        break;
+                    case "catlink":
+                        imgname = "cat";
+                        break;
+                    case "cactuslink":
+                        imgname = "cactus";
+                        break;
+                    case "chemlink":
+                        imgname = "chemistry";
+                        break;
+                }
+                
+                // show the selected image
+                setImage(imgname);
+                
+                // finally, the history API stuff
+                window.history.pushState(imgname, "History API - "+imgname, "history.html?"+imgname);
+            }
+            
+            function statepopped(event)
+            {
+                // if null, set back to the default state, otherwise switch images
+                if (event.state != null)
+                {
+                    setImage(event.state);
+                } else {
+                    resetImages();
+                }
+            }            
+            
+            // set up the onclick handlers for the image links on the left
+            var links = document.getElementsByClassName("imglink");
+            for (var i = 0; i < links.length; i++)
+            {
+                link = links[i];
+                link.onclick = updateImage;
+            }
+            
+            // set initial image state based on GET parameter
+            if (window.location.search != "")
+            {
+                setImage(window.location.search.substr(1));
+            }
+            
+            window.onpopstate = statepopped;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Canvas - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            #content {
+                text-align: center;
+            }
+            footer {
+                text-align: left;
+            }
+        </style>
+    </head>
+	<body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>Canvas test</h1>
+    		
+    		<canvas id="demo" width="580" height="550">
+    		    You don't seem to have canvas support. Get a better browser.
+    		</canvas>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript">
+            canvas = document.getElementById("demo");
+            var con = canvas.getContext("2d");
+            
+            con.fillStyle = "rgba(255, 0, 0, 0.5)";
+            con.beginPath();
+            con.arc(200, 350, 120, 0, Math.PI*2);
+            con.fill();
+            
+            con.fillStyle = "rgba(0, 255, 0, 0.5)";
+            con.beginPath();
+            con.arc(290, 200, 120, 0, Math.PI*2);
+            con.fill();
+            
+            con.fillStyle = "rgba(0, 0, 255, 0.5)";
+            con.beginPath();
+            con.arc(380, 350, 120, 0, Math.PI*2);
+            con.fill();
+            
+            con.fillStyle = "rgb(0,0,0)";
+            con.font = "20pt sans-serif";
+            con.fillText("Internet", 290-con.measureText("Internet").width/2, 175);
+            con.fillText("Video games", 175-con.measureText("Video games").width/2, 375);
+            con.fillText("Television", 400-con.measureText("Television").width/2, 375);
+            con.font = "12pt sans-serif";
+            con.fillText("Xbox", 290-con.measureText("Xbox").width/2, 360)
+            con.fillText("Complaining", 20, 160)
+            con.fillText("about games", 20, 180)
+            con.beginPath();
+            con.moveTo(20, 190);
+            con.lineTo(140, 190);
+            con.lineTo(200, 250);
+            con.stroke();
+            con.fillText("Complaining", 475, 160)
+            con.fillText("about TV", 475, 180)
+            con.beginPath();
+            con.moveTo(560, 190);
+            con.lineTo(440, 190);
+            con.lineTo(380, 250);
+            con.stroke();
+            con.font = "16pt sans-serif";
+            con.fillText("Procrastination", 290-con.measureText("Procrastination").width/2, 520)
+            con.beginPath();
+            con.moveTo(290, 300);
+            con.lineTo(400, 510);
+            con.lineTo(370, 510);
+            con.stroke();
+        </script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Transforms - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            .rose {
+                height: 10em;
+                border: 2px solid gray;
+            }
+            .scale50 {
+                -webkit-transform: scale(0.5);
+            }
+            .scalex50 {
+                -webkit-transform: scaleX(0.5);
+            }
+            .scaley50 {
+                -webkit-transform: scaleY(0.5);
+            }
+            .trans2 {
+                -webkit-transform: translate(2em)
+            }
+            .transx2 {
+                -webkit-transform: translateX(2em)
+            }
+            .transy2 {
+                -webkit-transform: translateY(2em)
+            }
+            .rot90 {
+                -webkit-transform: rotate(90deg)
+            }
+            .rot45 {
+                -webkit-transform: rotate(45deg)
+            }
+            .rot180 {
+                -webkit-transform: rotate(180deg)
+            }
+            .skew30 {
+                -webkit-transform: skew(30deg, 30deg)
+            }
+            .skewx30 {
+                -webkit-transform: skewX(30deg)
+            }
+            .skewy30 {
+                -webkit-transform: skewY(30deg)
+            }
+        </style>
+    </head>
+	<body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>CSS Transforms</h1>
+    		
+    		<h2>The unmodified image</h2>
+    		<img class="rose" src="../resource/rose.svg" />
+    		
+    		<h2>Scale</h2>
+            <img class="rose scale50" src="../resource/rose.svg" />
+            <img class="rose scalex50" src="../resource/rose.svg" />
+            <img class="rose scaley50" src="../resource/rose.svg" />
+            
+            <h2>Translate</h2>
+            <img class="rose trans2" src="../resource/rose.svg" />
+            <img class="rose transx2" src="../resource/rose.svg" />
+            <img class="rose transy2" src="../resource/rose.svg" />
+            
+            <h2>Rotate</h2>
+            <img class="rose rot90" src="../resource/rose.svg" />
+            <img class="rose rot45" src="../resource/rose.svg" />
+            <img class="rose rot180" src="../resource/rose.svg" />
+            
+            <h2>Skew</h2>
+            <img class="rose skewx30" src="../resource/rose.svg" />
+            <img class="rose skewy30" src="../resource/rose.svg" />
+            <img class="rose skew30" src="../resource/rose.svg" />
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript" src="media.js"></script>
+	</body>
+</html>

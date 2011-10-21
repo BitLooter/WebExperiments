@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Multiple columns - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <link rel="stylesheet" href="../resource/gentium.css" />
+        <style>
+            #columns {
+                -webkit-column-count: 2;
+                -webkit-column-gap: 2em;
+                -webkit-column-rule: gray 1px solid;
+            }
+            #columns h1 {
+                -webkit-column-span: all;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>Multiple columns with CSS</h1>
+            
+            <section id="columns">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis erat lorem, hendrerit ac convallis interdum, varius vitae purus. Maecenas et mauris a ligula lobortis tempus. Vivamus nec enim nibh. Praesent ac mi vitae tellus ullamcorper tempor vel eu risus. Sed ac nulla nibh, at facilisis eros. Quisque imperdiet, lacus et sollicitudin pharetra, lorem erat suscipit arcu, at fringilla felis arcu ultricies nisl. Morbi ullamcorper nibh non justo rutrum elementum dictum quam molestie. Proin ullamcorper nisi non lorem fringilla in sodales nisl ullamcorper. Nulla facilisi.
+                    <p>Sed eget leo et erat eleifend dictum. Vestibulum aliquet elementum dignissim. Etiam risus est, vulputate sed aliquet sit amet, fermentum consectetur ipsum. Vivamus ornare vulputate mattis. In hac habitasse platea dictumst. In gravida nibh at erat interdum iaculis non sed libero. Morbi lacinia ante enim. Integer mollis lacus diam, et fermentum ipsum.
+                    <p>Vestibulum ac lectus lectus. Duis ac sem mi. Nam justo tellus, sollicitudin vel vestibulum ac, laoreet ut justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse urna ante, eleifend a egestas a, feugiat eget orci. Fusce vel tellus et lectus laoreet posuere. Sed pellentesque imperdiet lectus non gravida. Nunc magna sem, sollicitudin at rhoncus ut, aliquam eu enim. Cras consectetur neque a nisi fringilla pulvinar. Integer augue nibh, pulvinar eu elementum ut, aliquam vitae enim. Praesent rhoncus massa quis sem interdum eleifend. Mauris interdum turpis ultricies ipsum laoreet pellentesque. Sed et urna tortor, et cursus erat. Maecenas dapibus ultrices faucibus. Curabitur adipiscing gravida magna, ut pulvinar est cursus id.
+            </section>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+    </body>
+</html>
