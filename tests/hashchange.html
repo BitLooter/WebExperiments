@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hashchange event - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>Hashchange event</h1>
+            
+            <ul>
+                <li><a href="#link1">Some random</a></li>
+                <li><a href="#link2">Links with</a></li>
+                <li><a href="#link3">Meaningless</a></li>
+                <li><a href="#link4">Hashes</a></li>
+            </ul>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+            
+            <script type="text/javascript">
+                function hashChanged() {
+                    if (location.hash == "#link1") {
+                        alert("That was the first link.");
+                    } else if (location.hash == "#link2") {
+                        alert("You have clicked the second link.");
+                    } else if (location.hash == "#link3") {
+                        alert("Third item on the list!");
+                    } else if (location.hash == "#link4") {
+                        alert("That's the last one.");
+                    } else {
+                        alert("What? That's not one of the links. Are you trying to trick me?");
+                    }
+                }
+                window.onhashchange = hashChanged;
+            </script>
+        </div>
+    </body>
+</html>
