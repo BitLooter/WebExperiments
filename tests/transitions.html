@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Transitions - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            .transitContainer {
+                width: 80%;
+                margin: auto;
+                text-align: center;
+            }
+            #transitBox {
+                width: 60%; margin-left: auto; margin-right: auto;
+                margin: 2em auto;
+                padding: 1em 0;
+                text-align: center;
+                background-color: silver;
+                border: 0.5em solid gray;
+                border-radius: 1em;
+                font: 20pt Arial, sans-serif;
+            }
+            #kicked {
+                display: none;
+            }
+            
+            .transitContainer:hover #transitBox {
+                -webkit-transition: all linear 0.3s;
+                -webkit-transform: rotate(-15deg) scale(1.5);
+                -moz-transition: all linear 0.3s;
+                -moz-transform: rotate(-15deg) scale(1.5);
+                -o-transition: all linear 0.3s;
+                -o-transform: rotate(-15deg) scale(1.5);
+            }
+            .transitContainer:hover #kickit {
+                display: none;
+            }
+            .transitContainer:hover #kicked {
+                display: block;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>CSS Transitions test</h1>
+            
+            <div class="transitContainer">
+                <div id="transitBox">
+                    <span id="kickit">Kick it up a notch</span>
+                    <span id="kicked">Bam!</span>
+                </div>
+                Hover over me!
+            </div>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+    </body>
+</html>
