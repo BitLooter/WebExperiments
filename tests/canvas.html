@@ -10,6 +10,9 @@
             footer {
                 text-align: left;
             }
+            #demo {
+                width: 80%;
+            }
         </style>
     </head>
 	<body>
@@ -20,7 +23,7 @@
             
             <h1>Canvas test</h1>
     		
-    		<canvas id="demo" width="580" height="550">
+    		<canvas id="demo" width="1160" height="1100">
     		    You don't seem to have canvas support. Get a better browser.
     		</canvas>
             
@@ -35,46 +38,48 @@
             
             con.fillStyle = "rgba(255, 0, 0, 0.5)";
             con.beginPath();
-            con.arc(200, 350, 120, 0, Math.PI*2);
+            con.arc(400, 700, 240, 0, Math.PI*2);
             con.fill();
             
             con.fillStyle = "rgba(0, 255, 0, 0.5)";
             con.beginPath();
-            con.arc(290, 200, 120, 0, Math.PI*2);
+            con.arc(580, 400, 240, 0, Math.PI*2);
             con.fill();
             
             con.fillStyle = "rgba(0, 0, 255, 0.5)";
             con.beginPath();
-            con.arc(380, 350, 120, 0, Math.PI*2);
+            con.arc(760, 700, 240, 0, Math.PI*2);
             con.fill();
             
             con.fillStyle = "rgb(0,0,0)";
-            con.font = "20pt sans-serif";
-            con.fillText("Internet", 290-con.measureText("Internet").width/2, 175);
-            con.fillText("Video games", 175-con.measureText("Video games").width/2, 375);
-            con.fillText("Television", 400-con.measureText("Television").width/2, 375);
-            con.font = "12pt sans-serif";
-            con.fillText("Xbox", 290-con.measureText("Xbox").width/2, 360)
-            con.fillText("Complaining", 20, 160)
-            con.fillText("about games", 20, 180)
+            con.font = "48pt sans-serif";
+            con.fillText("Ways I waste time", 580-con.measureText("Ways I waste time").width/2, 75);
+            con.font = "40pt sans-serif";
+            con.fillText("Internet", 580-con.measureText("Internet").width/2, 350);
+            con.fillText("Video games", 350-con.measureText("Video games").width/2, 750);
+            con.fillText("Television", 800-con.measureText("Television").width/2, 750);
+            con.font = "24pt sans-serif";
+            con.fillText("Xbox", 580-con.measureText("Xbox").width/2, 720)
+            con.fillText("Complaining", 40, 320)
+            con.fillText("about games", 40, 360)
             con.beginPath();
-            con.moveTo(20, 190);
-            con.lineTo(140, 190);
-            con.lineTo(200, 250);
+            con.moveTo(40, 380);
+            con.lineTo(280, 380);
+            con.lineTo(400, 500);
             con.stroke();
-            con.fillText("Complaining", 475, 160)
-            con.fillText("about TV", 475, 180)
+            con.fillText("Complaining", 950, 320)
+            con.fillText("about TV", 950, 360)
             con.beginPath();
-            con.moveTo(560, 190);
-            con.lineTo(440, 190);
-            con.lineTo(380, 250);
+            con.moveTo(1120, 380);
+            con.lineTo(880, 380);
+            con.lineTo(760, 500);
             con.stroke();
-            con.font = "16pt sans-serif";
-            con.fillText("Procrastination", 290-con.measureText("Procrastination").width/2, 520)
+            con.font = "32pt sans-serif";
+            con.fillText("Procrastination", 580-con.measureText("Procrastination").width/2, 1040)
             con.beginPath();
-            con.moveTo(290, 300);
-            con.lineTo(400, 510);
-            con.lineTo(370, 510);
+            con.moveTo(580, 600);
+            con.lineTo(800, 1020);
+            con.lineTo(740, 1020);
             con.stroke();
         </script>
 	</body>
