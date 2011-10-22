@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Animation - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            @-webkit-keyframes slideit {
+                from { right: 90%; }
+                50%  { -webkit-transform: scale(2); }
+                to   { background-color: navy; color: white;
+                       right: 0;
+                       -webkit-transform: scale(1); }
+            }
+            .animContainer {
+                margin-top: 3em;
+                position: relative;
+                height: 6em;
+            }
+            #animTest {
+                background-color: olive;
+                font-family: sans-serif; font-weight: bold;
+                width: 10%; height: 3; padding: 1em;
+                border: 1px solid black;
+                text-align: center;
+                position: absolute;
+                -webkit-animation: slideit 3s ease-in-out 0s infinite;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>CSS Animation test</h1>
+            
+            <div class="animContainer">
+                <div id="animTest">Actual<br />text!</div>
+            </div>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:pwnzerdragoon@gmail.com">pwnzerdragoon@gmail.com</a>.
+            </footer>
+        </div>
+    </body>
+</html>

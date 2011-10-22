@@ -1,0 +1,13 @@
+Just open the index.html file to access the website's content. Most of the tests
+and demos should work fine loaded from the local hard drive, but some (listed
+below) will only work properly from a proper server.
+
+All materials by me are released under the  Creative Commons
+Attribution-NonCommercial-ShareAlike 3.0 Unported License (CC BY-NC-SA), which
+you can read more about at http://creativecommons.org/licenses/by-nc-sa/3.0/.
+Materials not by me are documented in the Copyright Information section
+of the root page, and are mostly media taken from CC and PD sources.
+
+
+PAGES THAT DO NOT WORK FROM A LOCAL DISK
+- Geolocation test does not work from the disk in Chrome as of version 14.
