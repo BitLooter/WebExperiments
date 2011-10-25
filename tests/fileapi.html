@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>File API - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            #viewerContainer {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>File API test</h1>
+            
+            <h2>Select a text file</h2>
+            <input id="fileSelect" type="file" accept="text/plain" />
+            
+            <div id="viewerContainer">
+                <h2>View it here</h2>
+                <pre id="viewer"></pre>
+            </div>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:davidpowell42+ghpub@gmail.com">davidpowell42+ghpub@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script>
+            function showContents(e) {
+                viewer = document.getElementById("viewer");
+                viewer.appendChild(document.createTextNode(e.target.result));
+                viewer.parentElement.style.display = "block";
+            }
+            function handleFile(e) {
+                var reader = new FileReader();
+                reader.onload = showContents;
+                reader.readAsText(this.files[0]);
+            }
+            
+            input = document.getElementById("fileSelect");
+            input.onchange = handleFile;
+        </script>
+    </body>
+</html>
