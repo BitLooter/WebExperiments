@@ -12,7 +12,11 @@
             
             <h1>Web workers test</h1>
             
-            <div id="test"></div>
+            <p>If the test is working properly, this number should increment
+                once every second: <span id="counter"></span></p>
+            <p>Note: Some browsers may not work properly if this page was
+                loaded from a local file. If you're sure your browser
+                supports web workers, try loading the page from a web server.</p>
             
             <footer>
                 The 'Dave' in question is David Powell. Contact me at <a href="mailto:davidpowell42+ghpub@gmail.com">davidpowell42+ghpub@gmail.com</a>.
@@ -21,6 +25,11 @@
         
         <script>
             var worker = new Worker("workers.js");
+            worker.onmessage = function(e) {
+                document.getElementById("counter").innerHTML = e.data;
+            }
+            
+            worker.postMessage("start");
         </script>
     </body>
 </html>
