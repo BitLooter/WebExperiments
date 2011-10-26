@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Web workers - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>Web workers test</h1>
+            
+            <div id="test"></div>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:davidpowell42+ghpub@gmail.com">davidpowell42+ghpub@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script>
+            var worker = new Worker("workers.js");
+        </script>
+    </body>
+</html>
