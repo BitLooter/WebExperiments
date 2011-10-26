@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Drag-and-drop - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            .textbox {
+                border: 1px solid black;
+                height: 10em;
+                margin: 2em;
+                padding: 0.5em;
+                overflow: hidden;
+            }
+            #source {
+                font-family: sans-serif;
+            }
+            #dest {
+                font-family: fantasy;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>Drag-and-drop test</h1>
+            Select some text and drag it onto the bottom box.
+            
+            <div id="testContainer">
+                <div id="source" class="textbox">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis erat lorem, hendrerit ac convallis interdum, varius vitae purus. Maecenas et mauris a ligula lobortis tempus. Vivamus nec enim nibh. Praesent ac mi vitae tellus ullamcorper tempor vel eu risus. Sed ac nulla nibh, at facilisis eros. Quisque imperdiet, lacus et sollicitudin pharetra, lorem erat suscipit arcu, at fringilla felis arcu ultricies nisl. Morbi ullamcorper nibh non justo rutrum elementum dictum quam molestie. Proin ullamcorper nisi non lorem fringilla in sodales nisl ullamcorper. Nulla facilisi.
+                </div>
+                <div id="dest" class="textbox"></div>
+            </div>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:davidpowell42+ghpub@gmail.com">davidpowell42+ghpub@gmail.com</a>.
+            </footer>
+        </div>
+        
+        <script type="text/javascript">
+            dest = document.getElementById("dest");
+            dest.addEventListener("dragover", function(e){
+                if (e.preventDefault) e.preventDefault();
+            }, false);
+            dest.addEventListener("drop", function(e){
+                if (this.hasChildNodes()) {
+                    this.removeChild(this.firstChild);
+                }
+                this.appendChild(document.createTextNode(e.dataTransfer.getData("text/plain")));
+            }, false);
+        </script>
+    </body>
+</html>
