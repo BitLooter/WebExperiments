@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Media Queries - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            #testpics img.full {
+                display: block;
+                width: 100%;
+            }
+            #testpics img.thumb {
+                display: none;
+            }
+            
+            @media screen and (max-width: 600px) {
+                #content {
+                    margin: 0 1em;
+                }
+                #testpics img.full {
+                    display: none;
+                }
+                #testpics img.thumb {
+                    display: inline;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>CSS Media Queries test</h1>
+            
+            <p>These images will become inline thumbnails if the display area becames small enough.</p>
+            <p id="testpics">
+                <img class="full" src="../resource/cat.jpg" alt="Cat" />
+                <img class="full" src="../resource/cactus.jpg" alt="Cactus" />
+                <img class="full" src="../resource/cake.jpg" alt="Cake" />
+                <img class="full" src="../resource/chemistry.jpg" alt="Chemistry" />
+                <img class="thumb" src="../resource/cat-thumb.jpg" alt="Cat" />
+                <img class="thumb" src="../resource/cactus-thumb.jpg" alt="Cactus" />
+                <img class="thumb" src="../resource/cake-thumb.jpg" alt="Cake" />
+                <img class="thumb" src="../resource/chemistry-thumb.jpg" alt="Chemistry" />
+            </p>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:davidpowell42+ghpub@gmail.com">davidpowell42+ghpub@gmail.com</a>.
+            </footer>
+        </div>
+    </body>
+</html>
