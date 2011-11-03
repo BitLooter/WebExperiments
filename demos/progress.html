@@ -1,216 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Progress bar animation - Dave's web experiments</title>
-		<link rel="stylesheet" href="../resource/common.css" />
-    	<style>
-    		@-moz-keyframes svgFadeOut {
-    			from { fill: #777777; }
-    			to   { fill: #ffffff; }
-    		}
-            @-webkit-keyframes svgFadeOut {
-                from { fill: #777777; }
-                to   { fill: #ffffff; }
-            }
-    		#bar1 {
-    		    -moz-animation: svgFadeOut 1s linear 0s infinite;
-    		    -webkit-animation: svgFadeOut 1s linear 0s infinite;
-    		}
-    		#bar2 {
-    		    -moz-animation: svgFadeOut 1s linear 0.33s infinite;
-                -webkit-animation: svgFadeOut 1s linear 0.33s infinite;
-    		}
-    		#bar3 {
-                -moz-animation: svgFadeOut 1s linear 0.66s infinite;
-                -webkit-animation: svgFadeOut 1s linear 0.66s infinite;
-    		}
-    		
-    		/* Common keyframes */
-            @-moz-keyframes fadeOut {
-                from { opacity: 1.0 }
-                60%  { opacity: 0.0 }
-                to   { opacity: 0.0 }
-            }
+    <head>
+        <title>Progress bar animations - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
+        <style>
+            /* Keyframes */
             @-webkit-keyframes fadeOut {
                 from { opacity: 1.0 }
                 60%  { opacity: 0.0 }
                 to   { opacity: 0.0 }
             }
-            
-    		/* Cyclic block bar */
-    		#blockanim {
-    		    margin-left: auto; margin-right: auto;
-    		    width: 10em
-    		}
-    		#blockanim div {
-    			display: inline-block;
-    			width: 1em; height: 2em;
-    			border-radius: 0.25em;
-    			background-color: gray;
-    		}
-            #block-0 {
-                -webkit-animation: fadeOut 2s linear -1.75s infinite;
-                -moz-animation: fadeOut 2s linear -1.75s infinite;
+            @-webkit-keyframes throb {
+                5%   { -webkit-transform: scale(1.5) }
+                40%  { -webkit-transform: scale(1.0) }
             }
-            #block-1 {
-                -webkit-animation: fadeOut 2s linear -1.5s infinite;
-                -moz-animation: fadeOut 2s linear -1.5s infinite;
+            @-webkit-keyframes spin {
+                from { -webkit-transform: rotate(-540deg) }
+                30%  { -webkit-transform: rotate(0deg) }
             }
-            #block-2 {
-                -webkit-animation: fadeOut 2s linear -1.25s infinite;
-                -moz-animation: fadeOut 2s linear -1.25s infinite;
+            @-webkit-keyframes bump {
+                5%   { -webkit-transform: translateX(1.2em) }
+                20%  { -webkit-transform: translateX(0em) }
             }
-            #block-3 {
-                -webkit-animation: fadeOut 2s linear -1s infinite;
-                -moz-animation: fadeOut 2s linear -1s infinite;
-            }
-            #block-4 {
-                -webkit-animation: fadeOut 2s linear -0.75s infinite;
-                -moz-animation: fadeOut 2s linear -0.75s infinite;
-            }
-            #block-5 {
-                -webkit-animation: fadeOut 2s linear -0.5s infinite;
-                -moz-animation: fadeOut 2s linear -0.5s infinite;
-            }
-            #block-6 {
-                -webkit-animation: fadeOut 2s linear -0.25s infinite;
-                -moz-animation: fadeOut 2s linear -0.25s infinite;
-            }
-            #block-7 {
-                -webkit-animation: fadeOut 2s linear 0s infinite;
-                -moz-animation: fadeOut 2s linear 0s infinite;
+            @-webkit-keyframes svgFadeOut {
+                from { fill: #777777; }
+                to   { fill: #ffffff; }
             }
             
-            /* Cyclic block circle */
+            /* Common animation stuff */
+            .progressanim {
+                display: inline-block;
+                text-align: center;
+                width: 45%;
+            }
+            .progressanim div {
+                background-color: gray;
+                -webkit-animation-duration: 2s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-iteration-count: infinite;
+            }
+            .block-0 {
+                -webkit-animation-delay: -1.75s;
+            }
+            .block-1 {
+                -webkit-animation-delay: -1.5s;
+            }
+            .block-2 {
+                -webkit-animation-delay: -1.25s;
+            }
+            .block-3 {
+                -webkit-animation-delay: -1s;
+            }
+            .block-4 {
+                -webkit-animation-delay: -0.75s;
+            }
+            .block-5 {
+                -webkit-animation-delay: -0.5s;
+            }
+            .block-6 {
+                -webkit-animation-delay: -0.25s;
+            }
+            .block-7 {
+                -webkit-animation-delay: 0s;
+            }
+            
+            /* Fade block bar */
+            #fadebar div {
+                display: inline-block;
+                width: 1em; height: 2em;
+                border-radius: 0.25em;
+                -webkit-animation-name: fadeOut;
+            }
+            
+            /* Throb block bar */
+            #throbbar div {
+                display: inline-block;
+                margin: 0.4em;
+                width: 1.5em; height: 1.5em;
+                -webkit-animation-name: throb;
+            }
+            
+            /* Spin block bar */
+            #spinbar div {
+                display: inline-block;
+                margin: 0.6em;
+                width: 0.5em; height: 2em;
+                -webkit-animation-name: spin;
+            }
+            
+            /* Bump block bar */
+            #bumpbar div {
+                display: inline-block;
+                margin: 0.6em;
+                width: 0.5em; height: 2em;
+                -webkit-animation-name: bump;
+            }
+            
+            /* Fade block circle */
             #blockcircleanim {
-                margin-left: auto; margin-right: auto;
-                width: 6em; height: 6em;
-                position: relative; left: 2em; top: 2em;
+                height: 6em;
             }
             #blockcircleanim div {
-                position: absolute;
+                margin-left: auto; margin-right: auto;
+                position: relative;
                 width: 0.6em; height: 2em;
                 border-radius: 0.25em;
-                background-color: gray;
+                -webkit-animation-name: fadeOut;
             }
-            #blockcirc-0 {
-                -webkit-transform: translate(0, -2em);
-                -moz-transform: translate(0, -2em);
-                -webkit-animation: fadeOut 2s linear -1.75s infinite;
-                -moz-animation: fadeOut 2s linear -1.75s infinite;
+            .blockcirc-1 {
+                -webkit-transform: translate(1.41em, -1.41em) rotate(45deg);
             }
-            #blockcirc-1 {
-                -webkit-transform: rotate(45deg) translateY(-2em);
-                -moz-transform: rotate(45deg) translateY(-2em);
-                -webkit-animation: fadeOut 2s linear -1.5s infinite;
-                -moz-animation: fadeOut 2s linear -1.5s infinite;
+            .blockcirc-2 {
+                -webkit-transform: translate(2em, -2em) rotate(90deg);
             }
-            #blockcirc-2 {
-                -webkit-transform: rotate(90deg) translateY(-2em);
-                -moz-transform: rotate(90deg) translateY(-2em);
-                -webkit-animation: fadeOut 2s linear -1.25s infinite;
-                -moz-animation: fadeOut 2s linear -1.25s infinite;
+            .blockcirc-3 {
+                -webkit-transform: translate(1.41em, -2.58em) rotate(135deg);
             }
-            #blockcirc-3 {
-                -webkit-transform: rotate(135deg) translateY(-2em);
-                -moz-transform: rotate(135deg) translateY(-2em);
-                -webkit-animation: fadeOut 2s linear -1s infinite;
-                -moz-animation: fadeOut 2s linear -1s infinite;
+            .blockcirc-4 {
+                -webkit-transform: translateY(-4em);
             }
-            #blockcirc-4 {
-                -webkit-transform: translate(0, 2em);
-                -moz-transform: translate(0, 2em);
-                -webkit-animation: fadeOut 2s linear -0.75s infinite;
-                -moz-animation: fadeOut 2s linear -0.75s infinite;
+            .blockcirc-5 {
+                -webkit-transform: translate(-1.41em, -6.58em) rotate(225deg);
             }
-            #blockcirc-5 {
-                -webkit-transform: rotate(225deg) translateY(-2em);
-                -moz-transform: rotate(225deg) translateY(-2em);
-                -webkit-animation: fadeOut 2s linear -0.5s infinite;
-                -moz-animation: fadeOut 2s linear -0.5s infinite;
+            .blockcirc-6 {
+                -webkit-transform: translate(-2em, -10em) rotate(270deg);
             }
-            #blockcirc-6 {
-                -webkit-transform: rotate(270deg) translateY(-2em);
-                -moz-transform: rotate(270deg) translateY(-2em);
-                -webkit-animation: fadeOut 2s linear -0.25s infinite;
-                -moz-animation: fadeOut 2s linear -0.25s infinite;
+            .blockcirc-7 {
+                -webkit-transform: translate(-1.41em, -13.41em) rotate(315deg);
             }
-            #blockcirc-7 {
-                -webkit-transform: rotate(315deg) translateY(-2em);
-                -moz-transform: rotate(315deg) translateY(-2em);
-                -webkit-animation: fadeOut 2s linear 0s infinite;
-                -moz-animation: fadeOut 2s linear 0s infinite;
+            
+            /* SVG animation */
+            #bar1 {
+                -moz-animation: svgFadeOut 1s linear 0s infinite;
+                -webkit-animation: svgFadeOut 1s linear 0s infinite;
             }
-    	</style>
+            #bar2 {
+                -moz-animation: svgFadeOut 1s linear 0.33s infinite;
+                -webkit-animation: svgFadeOut 1s linear 0.33s infinite;
+            }
+            #bar3 {
+                -moz-animation: svgFadeOut 1s linear 0.66s infinite;
+                -webkit-animation: svgFadeOut 1s linear 0.66s infinite;
+            }
+        </style>
     </head>
-    
-	<body>
-	    
-<div id="content">
-    <h1>CSS animated progress bars</h1>
-    <p>No Javascript, these are all rendered using pure HTML/CSS (And SVG, for one of them).</p>
-    
-    <h2>HTML/CSS cyclic block progress bar</h2>
-    <div id="blockanim">
-    	<div id="block-0"></div>
-    	<div id="block-1"></div>
-    	<div id="block-2"></div>
-    	<div id="block-3"></div>
-    	<div id="block-4"></div>
-    	<div id="block-5"></div>
-    	<div id="block-6"></div>
-    	<div id="block-7"></div>
-    </div>
-    
-    <h2>HTML/CSS cyclic block progress circle</h2>
-    <div id="blockcircleanim">
-        <div id="blockcirc-0"></div>
-        <div id="blockcirc-1"></div>
-        <div id="blockcirc-2"></div>
-        <div id="blockcirc-3"></div>
-        <div id="blockcirc-4"></div>
-        <div id="blockcirc-5"></div>
-        <div id="blockcirc-6"></div>
-        <div id="blockcirc-7"></div>
-    </div>
-    
-    <h2>SVG animation</h2>
-    <svg
-       xmlns:svg="http://www.w3.org/2000/svg"
-       xmlns="http://www.w3.org/2000/svg"
-       version="1.1"
-       width="100"
-       height="100"
-       id="svg2">
-      <defs
-         id="defs4" />
-      <g id="progressbars">
-        <rect
-           width="20"
-           height="80"
-           x="10"
-           y="10"
-           id="bar1"
-           style="fill-rule:evenodd;stroke:none" />
-        <rect
-           width="20"
-           height="80"
-           x="40"
-           y="10"
-           id="bar2"
-           style="fill-rule:evenodd;stroke:none" />
-        <rect
-           width="20"
-           height="80"
-           x="70"
-           y="10"
-           id="bar3"
-           style="fill-rule:evenodd;stroke:none" />
-      </g>
-    </svg>
-
-
-</div>
-
-</body>
+    <body>
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>Progress bar CSS animations</h1>
+            <p>No Javascript, these are all rendered using pure HTML/CSS (And SVG, for one of them).</p>
+            
+            <div id="fadebar" class="progressanim">
+                <div class="block-0"></div>
+                <div class="block-1"></div>
+                <div class="block-2"></div>
+                <div class="block-3"></div>
+                <div class="block-4"></div>
+                <div class="block-5"></div>
+                <div class="block-6"></div>
+                <div class="block-7"></div>
+            </div>
+            
+            <div id="throbbar" class="progressanim">
+                <div class="block-0"></div>
+                <div class="block-1"></div>
+                <div class="block-2"></div>
+                <div class="block-3"></div>
+                <div class="block-4"></div>
+                <div class="block-5"></div>
+                <div class="block-6"></div>
+                <div class="block-7"></div>
+            </div>
+            
+            <div id="spinbar" class="progressanim">
+                <div class="block-0"></div>
+                <div class="block-1"></div>
+                <div class="block-2"></div>
+                <div class="block-3"></div>
+                <div class="block-4"></div>
+                <div class="block-5"></div>
+                <div class="block-6"></div>
+                <div class="block-7"></div>
+            </div>
+            
+            <div id="bumpbar" class="progressanim">
+                <div class="block-0"></div>
+                <div class="block-1"></div>
+                <div class="block-2"></div>
+                <div class="block-3"></div>
+                <div class="block-4"></div>
+                <div class="block-5"></div>
+                <div class="block-6"></div>
+                <div class="block-7"></div>
+            </div>
+            
+            <div id="blockcircleanim" class="progressanim">
+                <div class="block-0 blockcirc-0"></div>
+                <div class="block-1 blockcirc-1"></div>
+                <div class="block-2 blockcirc-2"></div>
+                <div class="block-3 blockcirc-3"></div>
+                <div class="block-4 blockcirc-4"></div>
+                <div class="block-5 blockcirc-5"></div>
+                <div class="block-6 blockcirc-6"></div>
+                <div class="block-7 blockcirc-7"></div>
+            </div>
+            
+            <h2>Embedded SVG animation</h2>
+            <svg
+               xmlns:svg="http://www.w3.org/2000/svg"
+               xmlns="http://www.w3.org/2000/svg"
+               version="1.1"
+               width="100"
+               height="100"
+               id="svg2">
+              <defs
+                 id="defs4" />
+              <g id="progressbars">
+                <rect
+                   width="20"
+                   height="80"
+                   x="10"
+                   y="10"
+                   id="bar1"
+                   style="fill-rule:evenodd;stroke:none" />
+                <rect
+                   width="20"
+                   height="80"
+                   x="40"
+                   y="10"
+                   id="bar2"
+                   style="fill-rule:evenodd;stroke:none" />
+                <rect
+                   width="20"
+                   height="80"
+                   x="70"
+                   y="10"
+                   id="bar3"
+                   style="fill-rule:evenodd;stroke:none" />
+              </g>
+            </svg>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:davidpowell42+ghpub@gmail.com">davidpowell42+ghpub@gmail.com</a>.
+            </footer>
+        </div>
+    </body>
 </html>
