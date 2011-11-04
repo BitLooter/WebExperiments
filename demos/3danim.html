@@ -1,39 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>3D CSS transforms/animations - Dave's web experiments</title>
-        
+        <title>3D transforms in animation - Dave's web experiments</title>
+        <link rel="stylesheet" href="../resource/common.css" />
         <style>
-            .container-3d { -webkit-perspective: 1000px; }
+            .container-3d {
+                -webkit-perspective: 1000px;
+            }
             #threedee {
-                margin-top: 10em;
-                width: 25%; height: 10em;
-                line-height: 10em;
+                margin-left: auto; margin-right: auto;
+                margin-top: 2em;
+                width: 60%;
                 background-color: #7777ff;
                 text-align: center;
+                -webkit-animation: move3d 1s linear infinite;
+                -webkit-transform-style: preserve-3d;
+                -webkit-backface-visibility: hidden;
             }
-            .centerblock { margin-left: auto; margin-right: auto; } 
-            .spinY { -webkit-animation: spin3d 2s linear infinite; }
-            @-webkit-keyframes spin3d {
-                from { -webkit-transform: rotateY(0deg) }
-                to   { -webkit-transform: rotateY(360deg) }
+            @-webkit-keyframes move3d {
+                from { -webkit-transform: rotateX(0deg); }
+                25%  { -webkit-transform: rotateX(45deg) rotateZ(15deg); }
+                75%  { -webkit-transform: rotateX(-45deg) rotateZ(-15deg); }
+                to   { -webkit-transform: rotateX(0deg); }
+            }
+            
+            .flipContainer {
+                width: 640px; height: 352px;
+                margin-left: auto; margin-right: auto;
+                position: relative;
+                -webkit-perspective: 2000px;
+            }
+            .flipContainer video {
+                position: absolute;
+                width: 640px; height: 352px;
+            }
+            .flipView {
+                position: absolute;
+                width: 100%; height: 100%;
+                margin: 0; padding: 0;
+                -webkit-transform-style: preserve-3d;
+                -webkit-transform: rotateY(90deg);
+            }
+            .flipContainer:hover .flipInner {
+                visibility: visible;
+                -webkit-transform: rotateY(-90deg);
+            }
+            .flipInner {
+                visibility: hidden;
+                height: 80%;
+                margin: 1em; padding: 1em;
+                background-color: rgba(255, 255, 255, 0.75);
+                -webkit-backface-visibility: hidden;
+                -webkit-transition: all 0.5s ease-out;
             }
         </style>
     </head>
     <body>
-
-<div class="container-3d">
-    <div id="threedee" class="spinY centerblock">
-        TEST
-    </div>
-</div>
-
-<div class="container-3d">
-    <video width="640" height="352" controls autoplay style="display: block" class="spinY centerblock">
-            <source src="../resource/traffic.mp4" type='video/mp4; codecs="avc1.64001E, mp4a.40.2"' />
-            <source src="../resource/traffic.webm" type='video/webm; codecs="vp8, vorbis"' />
-    </video>
-</div>
-
+        <div id="content">
+            <header>
+                <a href="../index.html"><img alt="Dave's web experiments" src="../resource/header.svg"></a>
+            </header>
+            
+            <h1>3D transforms in animation</h1>
+            <p>Animation works with 3D transforms, too. Try mousing over the video below
+            to see it in action.</p>
+            
+            <div class="flipContainer">
+                <!--<img src="../resource/cat.jpg" />-->
+                <video width="640" height="352" autoplay loop="infinite">
+                    <source src="../resource/traffic.mp4" type='video/mp4; codecs="avc1.64001E, mp4a.40.2"' />
+                    <source src="../resource/traffic.webm" type='video/webm; codecs="vp8, vorbis"' />
+                </video>
+                <div class="flipView">
+                    <div class="flipInner">
+                        <h2>Traffic on bridge at night</h2>
+                        <p>Cars driving accross the Golden Gate Bridge at night. Sourced
+                            from the YouTube video editor.</p>
+                        <p>And here's a 3D animation inside this transition:</p>
+                        <div class="container-3d">
+                            <div id="threedee" class="centerblock">
+                                I got to move it move it
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer>
+                The 'Dave' in question is David Powell. Contact me at <a href="mailto:davidpowell42+ghpub@gmail.com">davidpowell42+ghpub@gmail.com</a>.
+            </footer>
+        </div>
     </body>
 </html>
