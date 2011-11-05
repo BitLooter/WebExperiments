@@ -30,7 +30,8 @@ footer {
 }
 
 #content {
-    margin: 0 8em; padding: 1em;
+    width: 75%;
+    margin: auto; padding: 1em;
     border: 3pt solid black;
     border-radius: 0.8em;
     background-color: white;
